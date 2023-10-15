@@ -1,0 +1,137 @@
+<div class="alert mt-3 alert-success" *ngIf="success" role="alert"><strong>Well done!</strong> Your Order is
+    Successfully
+    Send</div>
+
+<div class="cartBox">
+    <h1 class="text-danger">{{'cart.shopping_cart' | translate }}</h1>
+    <div class="headCart">
+        <p class="lead">{{'cart.You_have' | translate}} <label class="text-danger "> {{productCart.length}} </label>
+            {{'cart.item_in_your_cart'
+            |translate}}</p>
+        <span class="text-danger card-header p-2 " (click)="deleteAllProductsToCart()">{{'cart.clear_shopping_cart' |
+            translate}}</span>
+    </div>
+    <table class="table table-light ">
+        <thead>
+            <tr class="text-center">
+                <th></th>
+                <th>{{'cart.name' |translate}}</th>
+                <th>{{'cart.price' |translate}}</th>
+                <th class="w-25"> {{'cart.quantity' |translate}}</th>
+                <th>{{'cart.total' |translate}}</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of productCart; let i=index ">
+                <td><img src="{{item.image}}" alt=""></td>
+                <td class="text-start">{{item.title}}</td>
+                <td>{{item.price}} L.E</td>
+                <td>
+                    <div class="quantity">
+                        <button class="btn btn-dark" (click)="plusAmount(i)">+</button>
+                        <input class="form-control" [(ngModel)]="item.quantity" (change)="detectChange($event,i)"
+                            type="number" value="0" min="1">
+                        <button class="btn btn-dark" (click)="minsAmount(i)">-</button>
+                    </div>
+                </td>
+                <td>{{item.quantity * item.price}} L.E</td>
+                <td>
+                    <button class="btn btn-danger" (click)="deleteProduct(i)">{{'cart.delete' |translate}}</button>
+                </td>
+            </tr>
+            <tr *ngIf="productCart.length == 0">
+                <td colspan="6"> No Data</td>
+
+            </tr>
+
+        </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="4">{{'cart.total' |translate}} : {{total|currency: ' L.E ' }}</th>
+                <th colspan="2"><button class="btn btn-success" [disabled]="productCart.length == 0"
+                        (click)=" addCarts()">{{'cart.order_now'
+                        |translate}}</button></th>
+            </tr>
+        </tfoot>
+    </table>
+
+</div>
+
+
+
+
+
+<!-- <section style="background-color: #fdccbc;">
+    <div class="container h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col">
+                <p><span class="h2">Shopping Cart </span><span class="h4">({{productCart.length}} item in your
+                        cart)</span></p>
+
+                <div class="card mb-4" *ngFor="let item of productCart; index as i ">
+                    <div class="card-body p-4">
+
+                        <div class="row align-items-center">
+                            <div class="col-md-2">
+                                <img src="{{item.image}}" class="img-fluid" alt="Generic placeholder image">
+                            </div>
+                            <div class="col-md-3 d-flex justify-content-center">
+                                <div>
+                                    <p class="small text-muted mb-4 pb-2">Name</p>
+                                    <p class="lead fw-normal mb-0 fs-6">{{item.title}}</p>
+                                </div>
+                            </div>
+                            <div class="col-md-2 d-flex justify-content-center">
+                                <div>
+                                    <p class="small text-muted mb-4 pb-2">Category</p>
+                                    <p class="lead fw-normal mb-0">
+
+                                        {{item.category}}</p>
+                                </div>
+                            </div> 
+                            <div class="col-md-2 d-flex justify-content-center">
+                                <div>
+                                    <p class="small text-muted mb-4 pb-2">Quantity</p>
+                                    <p class="lead fw-normal mb-0">{{item.quantity}}</p>
+                                </div>
+                            </div>
+                            <div class="col-md-2 d-flex justify-content-center">
+                                <div>
+                                    <p class="small text-muted mb-4 pb-2">Price</p>
+                                    <p class="lead fw-normal mb-0">{{item.price | currency}}</p>
+                                </div>
+                            </div>
+                            <div class="col-md-2 d-flex justify-content-center">
+                                <div>
+                                    <p class="small text-muted mb-4 pb-2">Total</p>
+                                    <p class="lead fw-normal mb-0">{{item.price*item.quantity | currency}}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="card mb-5">
+                    <div class="card-body p-4">
+
+                        <div class="float-end">
+                            <p class="mb-0 me-5 d-flex align-items-center">
+                                <span class="small text-muted me-2">Order total:</span> <span
+                                    class="lead fw-normal">$799</span>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-end">
+                    <button type="button" class="btn btn-light btn-lg me-2">Continue shopping</button>
+                    <button type="button" class="btn btn-primary btn-lg">Add to cart</button> 
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section> -->

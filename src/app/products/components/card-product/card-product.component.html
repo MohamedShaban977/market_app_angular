@@ -1,0 +1,18 @@
+<div class="item">
+    <div routerLink="/details/{{data.id}}">
+        <img class="item-image" [src]="data.image" alt="test">
+        <div class="body">
+            <h4>{{data.title}}</h4>
+            <p>{{data.description}}</p>
+        </div>
+    </div>
+    <div class="px-3 pb-3 md-2  d-flex justify-content-between align-items-center">
+        <button class="btn btn-success" (click)="add()" [disabled]="data.quantity == 0">App to cart</button>
+        <div class="bg-body-secondary d-flex align-items-center">
+            <button class="btn  btn-dark" (click)="incrementClick()">+</button>
+            <span class="px-4  fs-5 bg-light">{{data.quantity}}</span>
+            <button class="btn  btn-dark" [disabled]="data.quantity == 0" (click)="decrementClick()">-</button>
+        </div>
+        <span class="priceSpan">{{data.price | currency}}</span>
+    </div>
+</div>

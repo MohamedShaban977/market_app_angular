@@ -1,0 +1,16 @@
+<nav>
+    <div class="container">
+        <div class="content">
+            <h2 class="logo">{{ "header.market" | translate}}</h2>
+            <ul>
+                <li routerLink="/">{{'header.home' | translate}}</li>
+                <li routerLink="/products">{{'header.products' | translate}}</li>
+                <li routerLink="/carts">{{'header.carts' | translate}}</li>
+            </ul>
+            <button (click)="changeCurrentLanguage()" type="button" class="btn btn-light">
+                <i class="fa-solid fa-globe"></i>
+                {{'header.language'| translate}}</button>
+
+        </div>
+    </div>
+</nav>

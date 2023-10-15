@@ -1,0 +1,27 @@
+{
+    "dir": "ltr",
+    "header": {
+        "market": "Market",
+        "home": "Home",
+        "products": "Products",
+        "carts": "Carts",
+        "language": "عربى"
+    },
+    "products": {
+        "details": {
+            "description": "Description"
+        }
+    },
+    "cart": {
+        "shopping_cart": "Shopping Cart",
+        "You_have": "You have",
+        "item_in_your_cart": "item in your cart",
+        "clear_shopping_cart": "Clear Shopping Cart",
+        "name": "Name",
+        "price": "Price",
+        "quantity": "Quantity",
+        "total": "Total",
+        "delete": "Delete",
+        "order_now": "Order Now"
+    }
+}

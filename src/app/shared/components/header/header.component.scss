@@ -1,0 +1,29 @@
+nav {
+    background: linear-gradient(to right, #950b0b, #440606);
+    color: white;
+    .content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 10px;
+        ul {
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            width: 20%;
+            margin: 0;
+            li {
+                cursor: pointer;
+                font-size: 18px;
+                color: rgb(216, 216, 216);
+                text-decoration: none;
+                transition: all 0.3s;
+                &:hover,
+                :active {
+                    transform: scale(1.09, 1.09);
+                    color: white;
+                }
+            }
+        }
+    }
+}
