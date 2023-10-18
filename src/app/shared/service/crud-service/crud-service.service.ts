@@ -100,6 +100,12 @@ export class CrudServiceService {
 
 
 
+  downloadFile(url: string, endPoint: string,) {
+
+    return this.http.get(`${url}${endPoint}`, { responseType: 'blob' });
+
+
+  }
 
 
 
